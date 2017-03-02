@@ -1,5 +1,7 @@
+#!/usr/bin/env bash
 set -e
+mkdir -p output
 source ./fordelning.sh
-inkomst=$(cat target/pensionsratter.txt)
+inkomst=$(cat input/pensionsratter.txt)
 res=$(echo "scale=0; (${inkomst} * ${PREMIEPENSION}) / 1" | bc -l)
-echo ${res} > target/premiepension.txt
+echo ${res} > output/premiepension.txt
